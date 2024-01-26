@@ -1,8 +1,12 @@
 {
   "extends": "@repo/typescript-config/react-library.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"] //TODO: there is bug that trigger a runtime error when a ui component import like this way: import { cn } from "@/lib/utils";
+    }
   },
-  "include": ["src"],
+  "include": ["src", "**/*.config.js"],
   "exclude": ["node_modules", "dist"]
 }
